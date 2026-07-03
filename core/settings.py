@@ -20,6 +20,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -58,6 +59,21 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Dhaka'
 USE_I18N = True
 USE_TZ = True
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# URL prefix for static files
+STATIC_URL = "/static/"
+
+# Directory where collectstatic gathers files (primary lookup)
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Additional directories to search (optional)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+
+# URL to serve media files
+MEDIA_URL = "/media/"
+
+# Directory where uploaded files are stored
+MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

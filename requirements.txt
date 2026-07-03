@@ -1,4 +1,5 @@
 Django
 pillow
+whitenoise
 gunicorn
 
